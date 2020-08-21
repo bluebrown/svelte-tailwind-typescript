@@ -1,8 +1,17 @@
-<script>
-	import Tailwindcss from "./Tailwindcss.svelte";
+<script lang="ts">
+	import "./Tailwindcss.svelte";
 	import marked from "marked";
 	let value = "";
 	let showHtml = false;
+	const pasted = (e) => {
+			let pasted = e.clipboardData.getData('text')
+			let [h, ...b] = pasted.split('\n')
+			h = h.split('\t')
+			let d = h.map(() => '-')
+			value = [h, d, ...b.map((l) => l.split('\t'))]
+				.map((line) =>  line.join(' | '))
+				.join('\n')
+		}
 </script>
 
 <main class="flex flex-col w-full h-full min-w-0 min-h-0">
@@ -14,15 +23,7 @@
 		rows="10"
 		bind:value={value}
 		class="w-full rounded-md border"
-		on:paste|preventDefault={(e) => {
-			let pasted = e.clipboardData.getData('text')
-			let [h, ...b] = pasted.split('\n')
-			h = h.split('\t')
-			let d = h.map(() => '-')
-			value = [h, d, ...b.map((l) => l.split('\t'))]
-				.map((line) =>  line.join(' | '))
-				.join('\n')
-		}}
+		on:paste|preventDefault={pasted}
 	></textarea>
 	</section>
 	<hr>
