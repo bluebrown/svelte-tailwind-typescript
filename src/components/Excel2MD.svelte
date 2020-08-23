@@ -1,5 +1,4 @@
 <script lang="ts">
-  import CSVExport from '../components/CSVExport.svelte';
   import marked from 'marked';
   let value = '';
   let showHtml = false;
@@ -33,9 +32,6 @@
         class="minor-button">
         Toggle View
       </button>
-
-      <CSVExport {data} />
-
     </header>
     <div class="p-3 pt-0">
       {#if !showHtml}
