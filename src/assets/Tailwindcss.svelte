@@ -10,4 +10,10 @@
   button:focus {
     @apply outline-none shadow-outline;
   }
+  .minor-button {
+    @apply text-xs bg-gray-300 px-2 py-1 rounded-sm shadow-sm;
+  }
+  .minor-button:hover {
+    @apply bg-gray-200;
+  }
 </style>

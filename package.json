@@ -25,6 +25,10 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "crayon": "^6.0.1",
+    "crayon-animate": "^6.0.0",
+    "crayon-svelte": "^6.0.0",
+    "crayon-transition": "^6.0.0",
     "marked": "1.1.1",
     "sirv-cli": "^1.0.0"
   },
